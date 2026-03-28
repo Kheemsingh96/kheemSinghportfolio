@@ -1,0 +1,235 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: transparent;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid transparent;
+  display: flex;
+  justify-content: center;
+  box-shadow: none;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1440px;
+  padding: 20px 20px;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.logo-icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.dot {
+  width: 15px;
+  height: 15px;
+  background: linear-gradient(to bottom, #ff8a76, #ec4899);
+  border-radius: 4px;
+}
+
+.bar {
+  width: 28px;
+  height: 12px;
+  background: linear-gradient(to right, #ec4899, #a855f7);
+  border-radius: 4px;
+}
+
+.logo-name {
+  font-size: 26px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-menu a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #ec4899;
+}
+
+.hire-btn {
+  padding: 12px 34px;
+  background: linear-gradient(90deg, #a855f7, #ec4899, #ff8a76);
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.2);
+}
+
+.hire-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.4);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.hamburger .line {
+  width: 100%;
+  height: 3.5px; 
+  background-color: #fff;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 10px;
+}
+
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 1050;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* --- Media Queries --- */
+
+@media (max-width: 1024px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .hamburger.active .line:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .hamburger.active .line:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  .hamburger.active .line:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+
+  .header-right {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background: #0a0a0a;
+    border-left: 1px solid rgba(255, 255, 255, 0.05);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 40px;
+    gap: 40px;
+    z-index: 1080;
+    transition: 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    box-shadow: -15px 0 40px rgba(0, 0, 0, 0.7);
+  }
+
+  .header-right.active {
+    right: 0;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+  }
+
+  .nav-menu a {
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+  }
+
+  .hire-btn {
+    width: 100%;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    padding: 15px 24px;
+  }
+
+  .header-right {
+    width: 320px;
+  }
+}
+
+@media (max-width: 475px) {
+  .header-container {
+    padding: 12px 20px;
+  }
+
+  .logo-name {
+    font-size: 22px;
+  }
+
+  .dot { width: 12px; height: 12px; }
+  .bar { width: 22px; height: 9px; }
+
+  .header-right {
+    width: 85%;
+  }
+
+  .nav-menu a {
+    font-size: 18px;
+  }
+}

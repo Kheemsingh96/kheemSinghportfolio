@@ -1,0 +1,186 @@
+.hire-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 15px;
+}
+
+.hire-modal-card {
+  background: #0f0b16;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 32px;
+  width: 100%;
+  max-width: 440px;
+  padding: 50px 30px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9);
+}
+
+.scale-up {
+  animation: modalScale 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalScale {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(34, 197, 94, 0.1);
+  color: #22c55e;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  color: #94a3b8;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.modal-title {
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.modal-subtitle {
+  color: #94a3b8;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 35px;
+  padding: 0 10px;
+}
+
+.hire-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hire-option-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hire-option-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-3px);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.opt-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.whatsapp .opt-icon { background: rgba(37, 211, 102, 0.1); color: #25d366; }
+.email .opt-icon { background: rgba(236, 72, 153, 0.1); color: #ec4899; }
+
+.opt-text {
+  text-align: left;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.opt-text span {
+  display: block;
+  color: #fff;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.opt-text p {
+  color: #94a3b8;
+  font-size: 13.5px;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 480px) {
+  .hire-modal-card {
+    padding: 40px 20px;
+    border-radius: 24px;
+  }
+
+  .modal-title {
+    font-size: 24px;
+  }
+
+  .modal-subtitle {
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+
+  .hire-option-card {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .opt-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+
+  .opt-text span {
+    font-size: 15px;
+  }
+
+  .opt-text p {
+    font-size: 11.5px;
+  }
+}
+
+@media (max-width: 380px) {
+  .opt-text p {
+    font-size: 10.5px;
+  }
+  
+  .modal-title {
+    font-size: 22px;
+  }
+}
