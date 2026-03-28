@@ -9,7 +9,9 @@ const Services = ({ onHireClick }) => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const currentRef = sectionRef.current;
+    // 1. Sabse pehle ref ko variable mein save kiya
+    const currentRef = sectionRef.current; 
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -20,16 +22,18 @@ const Services = ({ onHireClick }) => {
       { threshold: 0.15 }
     );
 
+    // 2. Yahan 'currentRef' use hoga, 'sectionRef.current' nahi
     if (currentRef) {
       observer.observe(currentRef);
     }
 
     return () => {
+      // 3. Cleanup mein bhi 'currentRef' hi use hoga
       if (currentRef) {
         observer.unobserve(currentRef);
       }
     };
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <section 
@@ -51,7 +55,6 @@ const Services = ({ onHireClick }) => {
         </div>
 
         <div className="bento-grid-container">
-          
           <div className="bento-card card-wide-1 animate-slide-up delay-1">
             <div className="card-content">
               <h3>End-to-End UI/UX Design</h3>
@@ -110,14 +113,13 @@ const Services = ({ onHireClick }) => {
               <h3>Responsive Web & Mobile Apps</h3>
               <p>Pixel-perfect, scalable designs crafted for every device, ensuring a seamless experience across all platforms.</p>
               <a href="#portfolio" className="premium-btn btn-outline" style={{ textDecoration: 'none' }}>
-  VIEW PROJECTS <FiArrowRight className="btn-icon" />
-</a>
+                VIEW PROJECTS <FiArrowRight className="btn-icon" />
+              </a>
             </div>
             <div className="card-visual">
               <img src={mobileMockup} alt="Mobile App Mockup" className="mockup-img phone-img" />
             </div>
           </div>
-
         </div>
       </div>
     </section>
